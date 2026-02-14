@@ -26,6 +26,14 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: "project-6344747 (1)/out"
+      
+      - name: Create CNAME file
+        run: echo "nasahunchdslm.io" > "project-6344747 (1)/out/CNAME"
+      
+      - name: Re-upload artifact with CNAME
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "project-6344747 (1)/out"
 
   deploy:
     needs: build-and-deploy
