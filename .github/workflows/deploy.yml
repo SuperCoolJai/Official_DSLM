@@ -45,6 +45,17 @@ jobs:
         with:
           path: "project-6344747 (1)/out"
 
+  configure-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disable custom domain to enable standard GitHub Pages
+        run: |
+          gh api repos/SuperCoolJai/Official_DSLM/pages \
+            -H "Accept: application/vnd.github.v3+json" \
+            -X DELETE || true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   deploy:
     needs: build-and-deploy
     runs-on: ubuntu-latest
