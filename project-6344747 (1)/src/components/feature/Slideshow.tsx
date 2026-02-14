@@ -135,6 +135,7 @@ export default function Slideshow({ models, onClose, initialIndex = 0 }: Slidesh
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleNext = () => {

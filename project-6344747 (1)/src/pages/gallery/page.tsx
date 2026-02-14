@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getApprovedModels, uploadImage, saveModel } from '../../lib/storage';
 import type { Model } from '../../lib/storage';
 import StarField from '../../components/base/StarField';
@@ -29,7 +29,6 @@ const CATEGORIES = [
 const MODEL_CATEGORIES = CATEGORIES.filter(c => c.id !== 'all');
 
 export default function Gallery() {
-  const navigate = useNavigate();
   const [models, setModels] = useState<Model[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -60,7 +59,7 @@ export default function Gallery() {
   const [isDragOver, setIsDragOver] = useState(false);
 
   const { theme } = useTheme();
-  const { favorites, toggleFavorite, isFavorite, favoritesCount } = useFavorites();
+  const { toggleFavorite, isFavorite, favoritesCount } = useFavorites();
   const { hide: hideMusic, show: showMusic } = useMusicVisibility();
   const { hide: hideAgent, show: showAgent } = useAgentVisibility();
 

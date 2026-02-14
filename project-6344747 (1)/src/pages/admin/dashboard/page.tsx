@@ -63,6 +63,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     checkAuth();
     fetchAllData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const checkAuth = () => {

@@ -52,7 +52,7 @@ class AppErrorBoundary extends React.Component<
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(_: Error) {
+  static getDerivedStateFromError(): Pick<AppErrorBoundary['state'], never> {
     return { hasError: true };
   }
 

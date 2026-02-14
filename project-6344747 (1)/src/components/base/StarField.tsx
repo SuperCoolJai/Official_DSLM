@@ -303,8 +303,7 @@ export default function StarField() {
         starsRef.current.forEach((star) => {
           star.sparkleTimer += 1;
           const twinkle = Math.sin(timestamp * star.twinkleSpeed + star.twinklePhase);
-          let combinedTwinkle = twinkle * star.pulseIntensity * 0.5;
-
+        const combinedTwinkle = twinkle * star.pulseIntensity * 0.5;
           let sparkleBoost = 0;
           if (star.isSparkle && star.sparkleTimer > 100) {
             const sparklePhase = (star.sparkleTimer % 200) / 200;
@@ -449,7 +448,7 @@ export default function StarField() {
         star.sparkleTimer += 1;
         const twinkle = Math.sin(timestamp * star.twinkleSpeed + star.twinklePhase);
         const twinkle2 = Math.sin(timestamp * star.twinkleSpeed * 1.5 + star.twinklePhase * 0.7);
-        let combinedTwinkle = (twinkle * 0.6 + twinkle2 * 0.4) * star.pulseIntensity;
+        const combinedTwinkle = (twinkle * 0.6 + twinkle2 * 0.4) * star.pulseIntensity;
 
         let sparkleBoost = 0;
         if (star.isSparkle && star.sparkleTimer > 100) {

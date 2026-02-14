@@ -54,6 +54,7 @@ export default function SpaceMusic({ hidden = false }: SpaceMusicProps) {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   // Initialize audio element
+   
   useEffect(() => {
     const audio = new Audio();
     audio.loop = true;
@@ -89,6 +90,7 @@ export default function SpaceMusic({ hidden = false }: SpaceMusicProps) {
   }, []);
 
   // Update volume
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = isMuted ? 0 : volume / 100;
@@ -109,7 +111,7 @@ export default function SpaceMusic({ hidden = false }: SpaceMusicProps) {
         });
       }
     }
-  }, [currentTrackIndex]);
+  }, [currentTrackIndex, isPlaying]);
 
   // Close expanded panel when hidden
   useEffect(() => {
@@ -137,7 +139,7 @@ export default function SpaceMusic({ hidden = false }: SpaceMusicProps) {
         setIsPlaying(true);
         setIsLoading(false);
       }
-    } catch (err) {
+    } catch {
       setIsLoading(false);
       setError('Click play again to start music');
       setIsPlaying(false);

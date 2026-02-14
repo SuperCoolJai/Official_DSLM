@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import ThemeToggle, { useTheme } from '../../components/feature/ThemeToggle';
 import { useMusicVisibility } from '../../hooks/useMusicVisibility';
 import { useAgentVisibility } from '../../hooks/useAgentVisibility';
-import { getApprovedVideos, saveVideo, type Video } from '../../lib/storage';
+import { getApprovedVideos, saveVideo } from '../../lib/storage';
 
 interface VideoItem {
   id: string;
@@ -55,6 +55,7 @@ export default function VideosPage() {
   // Load videos from database
   useEffect(() => {
     loadVideos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadVideos = async () => {
