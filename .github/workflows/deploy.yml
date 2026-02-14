@@ -26,5 +26,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./project-6344747\ \(1\)/out
+          publish_dir: "./project-6344747 (1)/out"
           cname: false
